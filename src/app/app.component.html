@@ -1,14 +1,32 @@
+<form (ngSubmit)="addStudentEntry(regForm)" #regForm = "ngForm">
 <div>
-  <label>Student Number</label><input type="text" [(ngModel)] ="studNo"><br>
-  <label>Student First Name</label><input type="text" [(ngModel)] ="studFname"><br>
-  <label>Student Last Name</label><input type="text" [(ngModel)] ="studLname"><br>
-  <label>Student Program</label><input type="text" [(ngModel)] ="studProg"><br>
-  <label>Student Year</label><input type="text" [(ngModel)] ="studYr"><br>
+  <label>Student Number</label><input type="text" ngModel name = "studNo"
+  required
+  pattern = "[0-9]"
+  #studNo= "ngModel"><br>
+  <label>Student First Name</label><input type="text" ngModel name= "studFname"
+  required
+  pattern = "[A-z]"
+  #studFname = "ngModel"><br>
+  <label>Student Last Name</label><input type="text" ngModel name= "studLname"
+  required
+  pattern = "[A-z]"
+  #studLname = "ngModel"><br>
+  <label>Student Program</label><input type="text" ngModel name= "studProg"
+  required
+  pattern = "[A-z]"
+  #studFProg = "ngModel"><br>
+  <label>Student Year</label><input type="text" ngModel name= "studYr"
+  required
+  pattern = "[0-9]"
+  #studFYr = "ngModel"><br>
 </div>
+
 <div id="options">
-  <button id="addStudents" (click)="addStudentEntry()">Add Student Entry</button>
+  <button id="addStudents" >Add Student Entry</button>
   <button id="listStudents" (click)="listStudents()">listStudents</button>
 </div>
+</form>
 <div>
   {{ messages }}
 </div>

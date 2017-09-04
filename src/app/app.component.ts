@@ -26,17 +26,17 @@ export class AppComponent {
       return false;
   }
 
-  addStudentEntry(): Boolean{
+  addStudentEntry(studentRecord):void{
     this.printing = false;
     const stringPattern = /^[A-z\s]+$/;
     const studNumberPattern = /^[0-9]+$/;
     const studYearPattern = /^[1-5]+$/;
 
-    if (this.checkPatterns(this.studNo, studNumberPattern) &&
-      this.checkPatterns(this.studFname, stringPattern) &&
-      this.checkPatterns(this.studLname, stringPattern) &&
-      this.checkPatterns(this.studProg, stringPattern) &&
-      this.checkPatterns(this.studYr, studYearPattern)) {
+    // if (this.checkPatterns(this.studNo, studNumberPattern) &&
+    //   this.checkPatterns(this.studFname, stringPattern) &&
+    //   this.checkPatterns(this.studLname, stringPattern) &&
+    //   this.checkPatterns(this.studProg, stringPattern) &&
+    //   this.checkPatterns(this.studYr, studYearPattern)) {
 
         this.studentRecord = {
           studNumber: this.studNo,
@@ -48,12 +48,16 @@ export class AppComponent {
         this.studentCollection.push(this.studentRecord);
         this.messages = null;
         this.clearValues();
-    } else {
-      this.messages = 'Errors have been encountered and therefore cannot continue to process requested operation.';
-      return false;
-    }
+    // } else {
+    //   this.messages = 'Errors have been encountered and therefore cannot continue to process requested operation.';
+    //   return false;
+    // }
+    console.log(this.studentCollection);
   }
-  
+  onsubmit(regObject){
+    console.log('Submitted!');
+    console.log(regObject);
+  }
   listStudents(): void {
     this.printing = true;
     console.log('Showing stored students');
